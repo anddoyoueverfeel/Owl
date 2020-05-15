@@ -4,7 +4,9 @@ using Accord;
 using Accord.Neuro;
 using Accord.Neuro.Learning;
 using System.Linq;
-using Owl.Learning.Networks
+
+using Owl.Learning.Networks;
+using Owl.Accord.GH;
 
 public class Compute : GH_Component
 {
@@ -21,10 +23,12 @@ public class Compute : GH_Component
         }
     }
 
-    protected override Bitmap Icon
+    protected override System.Drawing.Bitmap Icon
     {
         get
         {
+            // You can add image files to your project resources and access them like this:
+            //return Resources.IconForThisComponent;
             return null;
         }
     }
@@ -53,9 +57,9 @@ public class Compute : GH_Component
         GH_OwlNetwork nn = null/* TODO Change to default(_) if this is not a reference type */;
         GH_OwlTensorSet ins = new GH_OwlTensorSet();
 
-        if (!DA.GetData(0, nn))
+        if (!DA.GetData(0, ref nn))
             return;
-        if (!DA.GetData(1, ins))
+        if (!DA.GetData(1, ref ins))
             return;
 
         TensorSet outs = nn.Value.ComputeOptimized(ins.Value);

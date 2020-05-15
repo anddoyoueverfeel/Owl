@@ -32,6 +32,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Owl.Accord.Extensions">
+      <HintPath>..\AllBuild\Owl.Accord.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Owl.Accord.GH.Common">
+      <HintPath>..\AllBuild\Owl.Accord.GH.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Owl.Core">
+      <HintPath>..\AllBuild\Owl.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Owl.Learning">
+      <HintPath>..\AllBuild\Owl.Learning.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -57,10 +69,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeepNet.cs" />
+    <Compile Include="Goos\GH_OwlNetwork.cs" />
+    <Compile Include="Goos\GH_OwlTensor.cs" />
+    <Compile Include="Goos\GH_OwlTensorSet.cs" />
     <Compile Include="HACompute.cs" />
     <Compile Include="HAConstructNetwork.cs" />
     <Compile Include="HAConstructNetworkDirect.cs" />
     <Compile Include="Owl.HackattackInfo.cs" />
+    <Compile Include="Params\Param_OwlTensorSet.cs" />
+    <Compile Include="Params\Param_OwlNetwork.cs" />
+    <Compile Include="Params\Param_OwlTensor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -70,36 +88,6 @@
     <PackageReference Include="Accord.Neuro">
       <Version>3.8.0</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Owl.Accord.Extensions\Owl.Accord.Extensions.vbproj">
-      <Project>{136a16ba-8ecc-485b-b2b9-37c41869820b}</Project>
-      <Name>Owl.Accord.Extensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Owl.Accord.GH.Common\Owl.Accord.GH.Common.vbproj">
-      <Project>{e8e92f14-cf18-4cc2-b738-3d54d0087d25}</Project>
-      <Name>Owl.Accord.GH.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Owl.Accord.GH\Owl.Accord.GH.vbproj">
-      <Project>{e01d6096-3e66-4299-8755-7516a8bb3ceb}</Project>
-      <Name>Owl.Accord.GH</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Owl.Core\Owl.Core.vbproj">
-      <Project>{af64eb7e-69ba-445b-9b97-2871c7d6d62b}</Project>
-      <Name>Owl.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Owl.GH.Common\Owl.GH.Common.vbproj">
-      <Project>{7624672a-965d-4686-901c-c284af793c6a}</Project>
-      <Name>Owl.GH.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Owl.GH\Owl.GH.vbproj">
-      <Project>{2524ae26-de99-4165-81be-0f52e5c584f2}</Project>
-      <Name>Owl.GH</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Owl.Learning\Owl.Learning.vbproj">
-      <Project>{ba178b4c-249e-43c7-98e3-473baebda91b}</Project>
-      <Name>Owl.Learning</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

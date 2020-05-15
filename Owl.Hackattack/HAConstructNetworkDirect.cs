@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using Grasshopper.Kernel;
-using Accord;
+﻿using Accord;
 using Accord.Neuro;
-using Accord.Neuro.Learning;
-using System.Linq;
+using Grasshopper.Kernel;
+using System;
+using System.Collections.Generic;
 
 
 public class ConstructOwlNetwork_Direct : GH_Component
@@ -21,11 +19,13 @@ public class ConstructOwlNetwork_Direct : GH_Component
         }
     }
 
-    protected override Bitmap Icon
+    protected override System.Drawing.Bitmap Icon
     {
         get
         {
-            return My.Resources.Icons_new_22;
+            // You can add image files to your project resources and access them like this:
+            //return Resources.IconForThisComponent;
+            return null;
         }
     }
 
