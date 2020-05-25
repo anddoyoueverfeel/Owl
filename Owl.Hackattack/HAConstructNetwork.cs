@@ -1,32 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using Grasshopper.Kernel;
 using Rhino.Geometry;
-using Accord;
-using Accord.Neuro;
-using Accord.Neuro.Learning;
-using System.Linq;
+using Grasshopper.Kernel;
+using Owl;
+using Owl.Core.Structures;
+using Owl.GH.Common;
+using Owl.Learning.Initializers;
+using Owl.Learning.Networks;
+using Owl.Learning.NeuronFunctions;
+
 
 public class ConstructOwlNetwork : GH_Component
 {
-    public ConstructOwlNetwork() : base("Construct Network", "Network", "Construct Owl.Learning Network", "Owl.Learning", "Supervised")
+    public ConstructOwlNetwork() : base(
+        "Construct Network", 
+        "Network", 
+        "Construct Owl.Learning Network",
+        "HackAttack",
+        "Owl")
     {
-    }
-
-    public override Guid ComponentGuid
-    {
-        get
-        {
-            return new Guid("{760DCC99-2B78-4B00-806C-FA9C462A0F7A}");
-        }
-    }
-
-    public override GH_Exposure Exposure
-    {
-        get
-        {
-            return GH_Exposure.hidden;
-        }
     }
 
     protected override void RegisterInputParams(GH_InputParamManager pManager)
@@ -42,27 +34,21 @@ public class ConstructOwlNetwork : GH_Component
         pManager.AddParameter(new Param_OwlNetwork());
     }
 
-    // Protected Overrides ReadOnly Property Icon As Bitmap
-    // Get
-    // Return My.Resources.icon_07
-    // End Get
-    // End Property
-
     protected override void SolveInstance(IGH_DataAccess DA)
     {
         List<int> l = new List<int>();
         List<int> f = new List<int>();
 
-        Interval rng;
+        Interval rng = new Interval();
         int seed = 123;
 
         if (!DA.GetDataList(0, l))
             return;
         if (!DA.GetDataList(1, f))
             return;
-        if (!DA.GetData(2, rng))
+        if (!DA.GetData(2, ref rng))
             return;
-        if (!DA.GetData(3, seed))
+        if (!DA.GetData(3, ref seed))
             return;
 
         List<int> lays = new List<int>(l);
@@ -110,4 +96,22 @@ public class ConstructOwlNetwork : GH_Component
 
         DA.SetData(0, nn);
     }
+
+    public override Guid ComponentGuid
+    {
+        get
+        {
+            return new Guid("{8c8b8025-541b-4682-87a2-d461b9fab11e}");
+        }
+    }
+
+    public override GH_Exposure Exposure
+    {
+        get
+        {
+            return GH_Exposure.primary;
+        }
+    }
+
 }
+

@@ -1,44 +1,21 @@
 ﻿using System;
 using Grasshopper.Kernel;
-using Accord;
-using Accord.Neuro;
-using Accord.Neuro.Learning;
 using System.Linq;
-
+using Owl;
+using Owl.Core.Tensors;
+using Owl.GH;
+using Owl.GH.Common;
 using Owl.Learning.Networks;
-using Owl.Accord.GH;
 
 public class Compute : GH_Component
 {
-    public Compute() : base("Compute", "Compute", "Compute the output values for the given input TensorSet", "Owl.Learning", "Supervised")
+    public Compute() : base(
+        "Compute", 
+        "Compute", 
+        "Compute the output values for the given input TensorSet",
+        "HackAttack",
+        "Owl")
     {
-    }
-
-    public override Guid ComponentGuid
-    {
-        get
-        {
-            //update GUID
-            return new Guid("{2F75DA58-C7C1-4AE7-AC8A-9B7962259F76}");
-        }
-    }
-
-    protected override System.Drawing.Bitmap Icon
-    {
-        get
-        {
-            // You can add image files to your project resources and access them like this:
-            //return Resources.IconForThisComponent;
-            return null;
-        }
-    }
-
-    public override GH_Exposure Exposure
-    {
-        get
-        {
-            return GH_Exposure.secondary;
-        }
     }
 
     protected override void RegisterInputParams(GH_InputParamManager pManager)
@@ -70,4 +47,33 @@ public class Compute : GH_Component
 
         DA.SetData(0, outs);
     }
+
+    public override Guid ComponentGuid
+    {
+        get
+        {
+            //update GUID
+            return new Guid("{2591c2c2-130a-4bc7-a639-b4d9ffc9954c}");
+        }
+    }
+
+    protected override System.Drawing.Bitmap Icon
+    {
+        get
+        {
+            // You can add image files to your project resources and access them like this:
+            //return Resources.IconForThisComponent;
+            return null;
+        }
+    }
+
+    public override GH_Exposure Exposure
+    {
+        get
+        {
+            return GH_Exposure.primary;
+        }
+    }
+
+
 }

@@ -1,40 +1,23 @@
-﻿using Accord;
-using Accord.Neuro;
-using Grasshopper.Kernel;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Grasshopper.Kernel;
+using Owl;
+using Owl.GH.Common;
+using Owl.Learning.Networks;
+using Owl.Learning.NeuronFunctions;
+using Owl.Core.Tensors;
+
 
 
 public class ConstructOwlNetwork_Direct : GH_Component
 {
-    public ConstructOwlNetwork_Direct() : base("Construct Network Ex", "NetworkEx", "Construct Owl.Learning Network from the atomic data." + Constants.vbCrLf + "Use this component when importing already trained models from other frameworks.", "Owl.Learning", "Supervised")
+    public ConstructOwlNetwork_Direct() : base(
+        "Construct Network Direct", 
+        "NetworkDirect", 
+        "Construct Owl.Learning Network from the atomic data." + Environment.NewLine + "Use this component when importing already trained models from other frameworks.", 
+        "HackAttack", 
+        "Owl")
     {
-    }
-
-    public override Guid ComponentGuid
-    {
-        get
-        {
-            return new Guid("{29977F8E-492F-431D-B308-2A45AFF3B3F8}");
-        }
-    }
-
-    protected override System.Drawing.Bitmap Icon
-    {
-        get
-        {
-            // You can add image files to your project resources and access them like this:
-            //return Resources.IconForThisComponent;
-            return null;
-        }
-    }
-
-    public override GH_Exposure Exposure
-    {
-        get
-        {
-            return GH_Exposure.primary;
-        }
     }
 
     protected override void RegisterInputParams(GH_InputParamManager pManager)
@@ -55,9 +38,9 @@ public class ConstructOwlNetwork_Direct : GH_Component
         TensorSet b = new TensorSet();
         List<int> f = new List<int>();
 
-        if (!DA.GetData(0, w))
+        if (!DA.GetData(0, ref w))
             return;
-        if (!DA.GetData(1, b))
+        if (!DA.GetData(1, ref b))
             return;
         if (!DA.GetDataList(2, f))
             return;
@@ -97,4 +80,31 @@ public class ConstructOwlNetwork_Direct : GH_Component
         Network nn = new Network(w, b, fs);
         DA.SetData(0, new GH_OwlNetwork(nn));
     }
+
+    public override Guid ComponentGuid
+    {
+        get
+        {
+            return new Guid("{43206ca1-2c19-4112-a0bf-f5ba6a6ee8ed}");
+        }
+    }
+
+    protected override System.Drawing.Bitmap Icon
+    {
+        get
+        {
+            // You can add image files to your project resources and access them like this:
+            //return Resources.IconForThisComponent;
+            return null;
+        }
+    }
+
+    public override GH_Exposure Exposure
+    {
+        get
+        {
+            return GH_Exposure.primary;
+        }
+    }
+
 }
