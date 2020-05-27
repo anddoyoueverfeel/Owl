@@ -10,11 +10,11 @@ using Owl.Learning.Networks;
 public class Compute : GH_Component
 {
     public Compute() : base(
-        "Compute", 
-        "Compute", 
-        "Compute the output values for the given input TensorSet",
+        "HA_Compute", 
+        "HA_Compute", 
+        "Compute the output values for the given input TensorSet (HackAttack version)",
         "HackAttack",
-        "Owl")
+        "HA_Owl")
     {
     }
 
@@ -52,7 +52,6 @@ public class Compute : GH_Component
     {
         get
         {
-            //update GUID
             return new Guid("{2591c2c2-130a-4bc7-a639-b4d9ffc9954c}");
         }
     }

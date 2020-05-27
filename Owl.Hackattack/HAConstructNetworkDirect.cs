@@ -14,9 +14,11 @@ public class ConstructOwlNetwork_Direct : GH_Component
     public ConstructOwlNetwork_Direct() : base(
         "Construct Network Direct", 
         "NetworkDirect", 
-        "Construct Owl.Learning Network from the atomic data." + Environment.NewLine + "Use this component when importing already trained models from other frameworks.", 
+        "Construct Owl.Learning Network from the atomic data." + Environment.NewLine 
+        + "Use this component when importing already trained models from other frameworks." + Environment.NewLine
+        + "(HackAttack version)",
         "HackAttack", 
-        "Owl")
+        "HA_Owl")
     {
     }
 

@@ -13,11 +13,11 @@ using Owl.Learning.NeuronFunctions;
 public class ConstructOwlNetwork : GH_Component
 {
     public ConstructOwlNetwork() : base(
-        "Construct Network", 
-        "Network", 
-        "Construct Owl.Learning Network",
+        "HA_Construct Network", 
+        "HA_Network", 
+        "Construct Owl.Learning Network (HackAttack version)",
         "HackAttack",
-        "Owl")
+        "HA_Owl")
     {
     }
 
